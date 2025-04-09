@@ -34,14 +34,14 @@
         </tr>-->
       </tbody>
     </table>
-
-    
   </div>
-  <FabButton positione="bottom-left"/>
+  <fab-button @click="() => console.log('cliked')">
+    <AddCircle />
+  </fab-button>
+  <!--<FabButton positione="bottom-left" />-->
 </template>
 
 <script lang="ts" setup>
 import FabButton from '@/modulorum/commune/components/FabButton.vue';
-
-    
+import AddCircle from '@/modulorum/commune/icons/AddCircle.vue';
 </script>
