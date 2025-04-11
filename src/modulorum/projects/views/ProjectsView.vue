@@ -83,10 +83,13 @@ import PropriumModal from '@/modulorum/commune/components/PropriumModal.vue';
 import AddCircle from '@/modulorum/commune/icons/AddCircle.vue';
 import ModalIcon from '@/modulorum/commune/icons/ModalIcon.vue';
 import { ref } from 'vue';
+import { useProjectsStore } from '../store/projects.store';
 
 const modalAperta = ref(false);
 
 const propriumModalAperta = ref(false);
+
+const projectsStore = useProjectsStore();
 
 const cumNovusValorem = (projectNomen: string) => {
   console.log(projectNomen);
