@@ -19,11 +19,16 @@
           <td>Blue</td>
         </tr>-->
         <!-- row 2 -->
-        <tr class="hover:bg-base-300">
-          <th>2</th>
-          <td>Hart Hagerty</td>
-          <td>Desktop Support Technician</td>
-          <td>Purple</td>
+        <tr
+          v-for="(project, index) in projectsStore.projectList"
+          :key="project.id"
+          class="hover:bg-base-300"
+        >
+          <th>{{ index + 1 }}</th>
+          <td>{{ project.nomen }}</td>
+          <td>{{ project.chores.length }}</td>
+          <!--<td>Purple</td>-->
+          <progress class="progress progress-primary w-56" value="10" max="100"></progress>
         </tr>
         <!-- row 3 
         <tr>
@@ -38,7 +43,7 @@
   <InputModal
     :aperta="modalAperta"
     @claudere="modalAperta = false"
-    @valorem="cumNovusValorem"
+    @valorem="projectsStore.addereProject"
     placeholder="Introduce el nombre del proyecto"
     titulus="Nuevo proyecto"
     subtitulus="Dale un nombre apropiado a tu proyecto"
@@ -83,12 +88,20 @@ import PropriumModal from '@/modulorum/commune/components/PropriumModal.vue';
 import AddCircle from '@/modulorum/commune/icons/AddCircle.vue';
 import ModalIcon from '@/modulorum/commune/icons/ModalIcon.vue';
 import { ref } from 'vue';
+import { useProjectsStore } from '../store/projects.store';
 
 const modalAperta = ref(false);
 
 const propriumModalAperta = ref(false);
 
-const cumNovusValorem = (projectNomen: string) => {
-  console.log(projectNomen);
-};
+const projectsStore = useProjectsStore();
+
+//const cumNovusValorem = (projectNomen: string) => {
+//console.log(projectNomen);
+//projectsStore.projectList.push({
+//id: '3',
+//nomen: projectNomen,
+//chores: [],
+//});
+//};
 </script>
